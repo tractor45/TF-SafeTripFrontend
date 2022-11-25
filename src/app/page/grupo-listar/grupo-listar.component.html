@@ -1,0 +1,69 @@
+<div class="container">
+    <div style=" text-align: center;">
+      <h1>Lista de grupos</h1>
+      </div>
+      <app-grupo-buscar></app-grupo-buscar>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+    <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Codigo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+   <ng-container matColumnDef="nombreGrupo">
+    <th mat-header-cell *matHeaderCellDef> Nombre Grupo</th>
+    <td mat-cell *matCellDef="let element"> {{element.nombreGrupo}} </td>
+   </ng-container>
+  
+   
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="numIntegrantes">
+      <th mat-header-cell *matHeaderCellDef> &nbsp;&nbsp;Integrantes&nbsp;&nbsp; </th>
+      <td mat-cell *matCellDef="let element"> {{element.numIntegrantes}} </td>
+    </ng-container>
+  
+  
+    <!-- Date Column -->
+    <ng-container matColumnDef="descripcion">
+      <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+      <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lider">
+        <th mat-header-cell *matHeaderCellDef> Lider de Grupo </th>
+        <td mat-cell *matCellDef="let element"> {{element.lider}} </td>
+      </ng-container>
+  
+    <ng-container matColumnDef="accion 1">
+      <th mat-header-cell *matHeaderCellDef> &nbsp;&nbsp;&nbsp;&nbsp;Accion 1 </th>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary"
+          [routerLink]="['destinos/nuevo', element?.id]">Editar</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="accion 2">
+      <th mat-header-cell *matHeaderCellDef> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accion 2 </th>
+      <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="warn" (click)="confirmar(element.id)">Eliminar</button>&nbsp;&nbsp;
+      </td>
+    </ng-container>
+    
+    
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  <div class="example-button-container">
+  
+    <button mat-mini-fab color="primary" aria-label="Example icon button with a plus one icon"
+      routerLink="/grupo/nuevo">
+      <mat-icon>plus_one</mat-icon>
+    </button>
+  </div>

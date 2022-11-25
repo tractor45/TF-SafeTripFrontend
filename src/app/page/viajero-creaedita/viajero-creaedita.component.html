@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>Viajero</h1>
+  
+  <mat-form-field class="example-full-width">
+      <mat-label>Id</mat-label>
+      <input matInput placeholder="idViajero" [(ngModel)]="viajero.idViajero">
+  </mat-form-field>
+  
+  <br>
+  
+  <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="nameViajero" [(ngModel)]="viajero.nameViajero">
+  </mat-form-field>
+  <br>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="emailViajero" [(ngModel)]="viajero.emailViajero">
+</mat-form-field>
+<br>
+<mat-form-field class="example-full-width">
+    <mat-label>TipoViajero</mat-label>
+    <input matInput placeholder="tipoViajero" [(ngModel)]="viajero.tipoViajero">
+</mat-form-field>
+<br>
+  <br>
+  <mat-form-field appearance="fill">
+      <mat-label>Seleccione Contacto</mat-label>
+      <mat-select [(value)]="idContactoSeleccionado" required>
+          <mat-option *ngFor="let c of listaContactos" [value]="c.idContacto">
+              {{c.nameContacto}}
+          </mat-option>
+      </mat-select>
+  </mat-form-field>
+  <br>
+  <button mat-raised-button color="warn" (click)="aceptar()">Aceptar</button>
+  <button mat-raised-button color="accent" routerLink="/viajeros">Cancelar</button>
+  </div>

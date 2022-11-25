@@ -1,0 +1,58 @@
+<div class="container">
+    <div style="text-align: center">
+      <h1>Lista de Contactos</h1>
+    </div>
+   <app-contacto-buscar></app-contacto-buscar>
+    
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>
+          Id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.idContacto }}</td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="nombrecontacto">
+        <th mat-header-cell *matHeaderCellDef>Nombrecontacto</th>
+        <td mat-cell *matCellDef="let element">{{ element.nameContacto }}</td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="numerocel">
+        <th mat-header-cell *matHeaderCellDef>&nbsp;&nbsp;NumeroCel</th>
+        <td mat-cell *matCellDef="let element">{{ element.numCel }}</td>
+      </ng-container>
+  
+      <!-- Date Column -->
+      
+     <!-- Symbol Column -->
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary"
+              [routerLink]="['edicion', element.idContacto]">Editar</button>
+          <button mat-raised-button color="warn" (click)="confirmar(element.idContacto)">Eliminar</button>
+      </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+  
+    <div class="example-button-container">
+      <button
+        mat-mini-fab
+        color="primary"
+        aria-label="Example icon button with a plus one icon"
+        routerLink="/contactos/nuevo"
+      >
+        <mat-icon>plus_one</mat-icon>
+      </button>
+    </div>
+  </div>
+  

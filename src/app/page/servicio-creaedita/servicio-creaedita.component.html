@@ -1,0 +1,35 @@
+<p>servicio-creaedita works!</p>
+<div class="container">
+
+    <h1>Servicio</h1>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Codigo</mat-label>
+      <input matInput placeholder="Id" [(ngModel)]="servicio.id">
+    </mat-form-field>
+    <br>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>TipoServicio</mat-label>
+      <input matInput required placeholder="tipoServicio" [(ngModel)]="servicio.tipoServicio">
+  
+    </mat-form-field>
+  
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Oferta</mat-label>
+      <input type="oferta" matInput required placeholder="oferta" [(ngModel)]="servicio.oferta">
+    </mat-form-field>
+  
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Descripcion</mat-label>
+        <input matInput required placeholder="descripcion" [(ngModel)]="servicio.descripcion">
+      </mat-form-field>
+    
+      <br> 
+    <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/servicio">Cancelar</button>
+    <p>{{mensaje}}</p>
+  
+  </div>

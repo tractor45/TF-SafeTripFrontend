@@ -1,0 +1,36 @@
+<p>destino-creaedita works!</p>
+<div class="container">
+
+    <h1>Destino</h1>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Codigo</mat-label>
+      <input matInput placeholder="Id" [(ngModel)]="destino.idDestino">
+    </mat-form-field>
+  
+    <br>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Descripcion</mat-label>
+      <input matInput required placeholder="descripcion" [(ngModel)]="destino.despDestino">
+  
+    </mat-form-field>
+  
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Destino</mat-label>
+      <input type="destino" matInput required placeholder="destino" [(ngModel)]="destino.nameDestino">
+    </mat-form-field>
+  
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Fecha</mat-label>
+        <input matInput required placeholder="fecha" [(ngModel)]="destino.fechaDestino">
+      </mat-form-field>
+    
+      <br> 
+    <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/destinos">Cancelar</button>
+    <p>{{mensaje}}</p>
+  
+  </div>
